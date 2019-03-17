@@ -1,0 +1,204 @@
+
+<!--uestions-->
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title> <?php echo $subject;?> | Question <?php echo $question_id;?> | Quiz Platform 2.0</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google fonts - which you want to use - (rest you can just remove) -->
+  
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/prettyPhoto.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+	<script type="text/x-mathjax-config">
+  //
+  //  The document is hidden until MathJax is finished, then
+  //   this function runs, making it visible again.
+  //
+  MathJax.Hub.Config({
+  jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"],
+  extensions: ["tex2jax.js","MathMenu.js","MathZoom.js","fast-preview.js","AssistiveMML.js"],
+  TeX: {
+    extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+  }
+});
+
+  MathJax.Hub.Queue(function () {
+    document.getElementById("hide_page").style.visibility = "";
+  });
+</script>
+<script type="text/javascript" src="MathJax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+</head>
+
+<body id="top">
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade ybrowser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <?php include '../includes/header.php';?>
+    <!-- HOME -->
+    <div id="home-area">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+
+                    <!-- HOME CONTENT -->
+                    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+					
+					<div class="modal fade" id="ansModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div  class="modal-dialog"> 
+ <div class="modal-content"> 
+<div class="modal-header"> 
+ <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button> 
+
+ </div> 
+ <div class="modal-body"> 
+ <div class= "row">
+							<div class="col-lg-12">
+								<p id="answer-text"></p>
+							</div>	
+						</div>
+ </div>
+
+ </div><!-- /.modal-content --> 
+ </div><!-- /.modal -->
+ </div>
+					
+					
+					<div id="time-text"></div>
+					
+					
+					
+                        <div class="home-content wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0s">
+                            <div id="clockdiv" class="pull-right"><!-- <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <span class="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>-->
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+</div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+
+							<h1 id="subject"><?php echo $subject;?>
+							<br> Question <span id="question-id"><?php echo $question_id;?></span>: </h1>
+							<h2><?php echo $question;?></h2>
+							
+							
+							<div class="col-md-6">
+						
+									<h2><button data-toggle="modal" data-target="#ansModal" class="form-control btn btn-default btn-lg" value="<?php echo $option1;?>" onclick="answer(this.value)"/>
+									<span class="pull-left">A)</span><?php echo $option1;?></button></h2>
+									
+									</div>
+							
+							<div class="col-md-6">
+						
+									<h2><button data-toggle="modal" data-target="#ansModal" class="form-control btn btn-default btn-lg" value="<?php echo $option2;?>" onclick="answer(this.value)"/>
+									<span class="pull-left">B)</span> <?php echo $option2;?></button></h2>
+									
+									</div>
+							
+							<div class="col-md-6">
+						
+									<h2><button data-toggle="modal" data-target="#ansModal" class="form-control btn btn-default btn-lg" value="<?php echo $option3;?>" onclick="answer(this.value)"/>
+									<span class="pull-left">C)</span> <?php echo $option3;?></button></h2>
+									
+									</div>
+							
+							<div class="col-md-6">
+						
+									<h2><button data-toggle="modal" data-target="#ansModal" class="form-control btn btn-default btn-lg" value="<?php echo $option4;?>" onclick="answer(this.value)"/>
+									<span class="pull-left">D)</span> <?php echo $option4;?></button></h2>
+									
+									</div>
+							
+							
+							
+							
+                             </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END HOME -->
+
+  
+  
+    <?php include '../includes/footer.php';?> 
+  
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58035815-1', 'auto');
+      ga('send', 'pageview');
+	  
+
+
+	  
+	  
+	  function answer(val){
+	  
+	  var subject= document.getElementById('subject').innerHTML;
+	  var question_id= document.getElementById('question-id').innerHTML;
+	 // alert(subject);
+	  
+	  
+	  if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById('answer-text').innerHTML = xmlhttp.responseText;
+//alert(xmlhttp.responseText);
+            }
+        };
+        xmlhttp.open("GET","answers.php?answer="+val+"&subject="+subject+"&question_id="+question_id,true);
+        xmlhttp.send();
+	  
+	  }
+	  
+	   
+    </script>
+    <!-- js files -->
+    <script src="../js/vendor/jquery-1.10.2.min.js"></script>
+    <script src="../js/plugins.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/prettyPhoto.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+   <script src="../js/main.js"></script>
+   <script src="clock.js"></script>
+</body>
