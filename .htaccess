@@ -1,0 +1,7 @@
+# This folder does not require access over HTTP
+# (the following directive denies access by default)
+
+AddHandler php7-script .php php5-script .html .htm
+
+
+# AddHandler application/x-httpd-php70 .php .php5 .html .htm
